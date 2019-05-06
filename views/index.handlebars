@@ -1,0 +1,85 @@
+<div class="jumbotron jumbotron-fluid bg-dark text-light p-5">
+  <h1>Eat-Da-Burger App!</h1>
+</div>
+
+<div class="container">
+  <div class="row">
+    {{!-- column for form --}}
+    <div class="col-12 col-md-3">
+      <form id="burger-form">
+        <input class="form-control" id="name-input" placeholder="Burger's Name"/>
+        <button class="btn btn-success btn-block" type="submit">
+          Add A Burger!
+        </button>
+      </form>
+    </div>
+    {{!-- end left column --}}
+    {{!-- right column to display cats--}}
+    <div class="col-12 col-md-9">
+      {{!-- make two columns in right column --}}
+      <div class="row">
+        {{!-- inner left column --}}
+        <div class="col-12 col-md-6">
+          <h2>Burgers That Aren't Hungry</h2>
+          <ul class="list-group">
+            {{!-- use handlebars to print burgers that aren't hungry --}}
+            {{#each burgerData}}
+              {{!-- this is the same as saying !== --}}
+              {{#unless hungry}}
+                <li class="list-group-item d-flex">
+                  {{name}} 
+                  <span class="ml-auto">
+                    <button 
+                      data-id="{{id}}"
+                      data-hungry="true"
+                      class="btn btn-sm btn-info update-burger"
+                      >
+                     Make Hungry
+                    </button>
+
+                    {{!-- delete burger --}}
+                    <button
+                      data-id="{{id}}"
+                      class="btn btn-sm btn-danger delete-burger"
+                    >
+                      Delete Burger
+                    </button>
+                  </span>
+                </li>
+              {{/unless}}
+            {{/each}}
+          </ul>
+        </div>
+        {{!-- end inner left --}}
+        {{!-- inner right --}}
+        <div class="col-12 col-md-6">
+          <h2>Burgers That Are Hungry</h2>
+          <ul class="list-group">
+            {{!-- use handlebars to print burgers that aren't hungry --}}
+            {{#each burgerData}}
+            {{!-- this is the same as saying !== --}}
+            {{#if hungry}}
+            <li class="list-group-item d-flex">
+              {{name}}
+              <span class="ml-auto">
+                <button data-id="{{id}}" data-sleepy="false" class="btn btn-sm btn-info update-cat">
+                   Eat
+                </button>
+        
+                {{!-- delete burger --}}
+                <button data-id="{{id}}" class="btn btn-sm btn-danger delete-burger">
+                 Delete Burger
+                </button>
+              </span>
+            </li>
+            {{/if}}
+            {{/each}}
+          </ul>
+        </div>
+        {{!-- end inner right --}}
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="./assets/js/burgers.js"></script>
