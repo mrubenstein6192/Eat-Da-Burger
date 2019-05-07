@@ -1,6 +1,6 @@
 # Eat-Da-Burger
 
--- link --
+https://rubenstein-eat-da-burger.herokuapp.com/
 
 ## Functionality
 
