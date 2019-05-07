@@ -24,16 +24,18 @@ $(document).ready(function() {
   });
 
   // update burger
+  // $(document).on("click", ".update-burger", function (event) {
+  //   event.preventDefault();
   $(".update-burger").on("click", function() {
-    // read back cat's id and sleepy status
+    // read back burger's id and ready status
     const burgerId = $(this).attr("data-id");
-    const hungry = $(this).attr("data-hungry")
+    const ready = $(this).attr("data-ready");
 
     $.ajax({
       url: `/api/burgers/${burgerId}`,
       method: "PUT",
       data: {
-        sleepy: hungry
+        ready: ready
       } // req.body
     })
     .then(() => location.reload())

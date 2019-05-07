@@ -17,7 +17,7 @@ module.exports = app => {
   app.post("/api/burgers", function(req, res) {
     // pass req.body into create method 
     // req.body => {name: "veggie burger"}
-    burgers.create(req.burgers)
+    burgers.create(req.body)
       .then(dbBurgerData => res.json(dbBurgerData))
       .catch(err => {
         console.log(err);
@@ -36,10 +36,10 @@ module.exports = app => {
       });
   });
 
-  // PUT/update a burger's hungry to true/false by id
+  // PUT/update a burger's ready to true/false by id
   app.put("/api/burgers/:id", function(req, res) {
-    // req.body => {hungry: true} || {hungry : false}
-    burgers.update(req.body.hungry, req.params.id)
+    // req.body => {ready: true} || {ready : false}
+    burgers.update(req.body.ready, req.params.id)
       .then(dbBurgerData => res.json(dbBurgerData))
       .catch(err => {
         console.log(err);

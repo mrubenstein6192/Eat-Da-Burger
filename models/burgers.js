@@ -37,7 +37,7 @@ const findById = burgerId => {
 // INSERT INTO burgers SET ? ({name: "burgerName"})
 const create = burgerDataObj => {
   return new Promise((resolve, reject) => {
-    connection.query('INSERT INTO burgers SET ?', [burgerDataObj], function(err, dbBurgerData) {
+    connection.query("INSERT INTO burgers SET ?", [burgerDataObj], function(err, dbBurgerData) {
       if (err) {
         // this will throw to a .catch()
         return reject(err);
@@ -48,16 +48,16 @@ const create = burgerDataObj => {
   });
 };
 
-// UPDATE burgers (set value of "hungry" to true or false)
+// UPDATE burgers (set value of "ready" to true or false)
 // UPDATE burger SET burger = ? WHERE id = ? ([true, 2])
-const update = (hungryValue, burgerId) => {
+const update = (readyValue, burgerId) => {
   return new Promise((resolve, reject) => {
 
-    // set hungryValue to boolean true/false
-    hungryValue = (hungryValue === "true") 
+    // set readyValue to boolean true/false
+    readyValue = (readyValue === "true") 
       ? true : false;
 
-    connection.query("UPDATE burgers SET hungry = ? WHERE id = ?", [hungryValue, burgerId], function(err, dbBurgerData) {
+    connection.query("UPDATE burgers SET ready = ? WHERE id = ?", [readyValue, burgerId], function(err, dbBurgerData) {
 
       if (err) {
         return reject(err);
