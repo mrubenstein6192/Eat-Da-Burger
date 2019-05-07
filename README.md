@@ -12,6 +12,8 @@ This app is designed to simulate a customer ordering a burger at a restaurant.  
 
 - Handlebars
 
+- APIs
+
 - HTML/Javascript/Jquery/Node/Express
 
 ### Author
